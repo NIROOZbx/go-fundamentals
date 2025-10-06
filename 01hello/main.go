@@ -1,17 +1,15 @@
 package main
 
-
 import "fmt"
 
 func main() {
 
-	even:=2
+	even := 2
 
-	if even%2==0{
+	if even%2 == 0 {
 		fmt.Println("Even")
-	}else{
+	} else {
 		fmt.Println("It is odd")
 	}
-	
-	
+
 }
