@@ -3,13 +3,12 @@ package main
 import "fmt"
 
 func main() {
-
-	even := 2
-
-	if even%2 == 0 {
-		fmt.Println("Even")
-	} else {
-		fmt.Println("It is odd")
+ a,b:=0,1
+	for i:=0;i<9;i++ {
+		temp:=a
+		a=b
+		b=temp+a
+		fmt.Println(a)
 	}
 
 }
