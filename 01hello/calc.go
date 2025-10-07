@@ -1,29 +1,28 @@
 package main
+
 import "fmt"
-func Calculator(a, b float64){
 
-		switch "division"{
+func Calculator(a, b float64) {
 
-		case "addition":
-			fmt.Println(a+b)
-		
-		case "subtract":
-			fmt.Println(a-b)
+	switch "division" {
 
-		case "division":
-			fmt.Println(a/b)
+	case "addition":
+		fmt.Println(a + b)
 
-		case "multiply":
-			fmt.Println(a*b)
+	case "subtract":
+		fmt.Println(a - b)
 
+	case "division":
+		fmt.Println(a / b)
 
-		}
+	case "multiply":
+		fmt.Println(a * b)
+
 	}
+}
 
-func main(){
-	
-		
-	Calculator(3,5)
+func main() {
 
+	Calculator(3, 5)
 
 }
