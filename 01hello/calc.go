@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func Calculator(a, b float64) {
+func Calculator(a, b float64,operation string) {
 
-	switch "division" {
+	switch operation {
 
 	case "addition":
 		fmt.Println(a + b)
@@ -23,6 +23,9 @@ func Calculator(a, b float64) {
 
 func main() {
 
-	Calculator(3, 5)
+	Calculator(3, 5,"addition")
+	Calculator(3, 5,"subtract")
+	Calculator(3, 5,"division")
+	Calculator(3, 5,"multiply")
 
 }
