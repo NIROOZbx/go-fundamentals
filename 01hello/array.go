@@ -24,4 +24,9 @@ func findMinMax()(int,int){
 func main(){
 	
 	 fmt.Println(findMinMax())
+
+	 var arr=[] int
+	 arr1:=[]int
+
+	 
 }
