@@ -8,6 +8,8 @@ type Shape interface{
 }
 
 
+
+
 type Rectangle struct{
 	Length float64
 	Width float64
@@ -34,15 +36,24 @@ func (r Rectangle) Perimeter() float64{
 	return 2*(r.Length+r.Width)
 }
 
+func printShapeDetails(s Shape) {
+	fmt.Printf("Area: %.2f\n", s.Area())
+	fmt.Printf("Perimeter: %.2f\n", s.Perimeter())
+	fmt.Println("------")
+}
 
-func main(){
+func main() {
+	rect := Rectangle{Length: 5, Width: 3}
+	circle := Circle{Radius: 4}
 
-	rect:=Rectangle{Length:5,Width:3}
-	circle:=Circle{Radius:4}
+	// Now your main function is much cleaner.
+	fmt.Println("Rectangle Details:")
+	printShapeDetails(rect)
 
-	fmt.Println("Area of a rectangle",rect.Area())
-	fmt.Println("Permiter of a rectangle",rect.Perimeter())
-	fmt.Println("Area of a rectangle",circle.Area())
-	fmt.Println("Permiter of a rectangle",circle.Perimeter())
+	fmt.Println("Circle Details:")
+	printShapeDetails(circle)
+	var s Shape
 
+	fmt.Println(s)
+	
 }
