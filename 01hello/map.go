@@ -2,17 +2,16 @@ package main
 
 import "fmt"
 
+var students=map[string]int{"har":56}
+
+
 func main(){
-	var students=map[string]int{}
 	students["john"]=50
-	students["alex"]=87
-	students["david"]=99
-	students["Alice"]=89
-
-	students["Dave"] = 92
-
-    
-    students["Alice"] = 95
+students["alex"]=87
+students["david"]=99
+students["Alice"]=89
+students["Dave"] = 92
+students["Alice"] = 95
 	
 	var val,exists=students["alex"]
 
