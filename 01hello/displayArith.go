@@ -5,5 +5,5 @@ import "hello/calcfunc"
 
 func main(){
 
-	fmt.Println(arithmetic.Add(3,4))
+	fmt.Println(arithmetic.Divide(3,0))
 }
