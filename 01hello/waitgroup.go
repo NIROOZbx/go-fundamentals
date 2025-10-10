@@ -3,22 +3,27 @@ package main
 import "fmt"
 import "sync"
 
-
-func Worker(id int , wg *sync.WaitGroup){
+func Increment(wg *sync.WaitGroup,mu *sync.Mutex,count *int) {
 	defer wg.Done()
-	fmt.Printf("Worker %d: starting task\n", id)
+	mu.Lock()
+	 *count++
+	 defer mu.Unlock()
+	 fmt.Println(*count) 
 
 }
 
 func main(){
-var wg sync.WaitGroup
 
-for i:=0;i<5;i++{
-	wg.Add(1)
-	go Worker(i, &wg)
-}
+	var wg sync.WaitGroup
+	var mu sync.Mutex
+	var counter int
 
-fmt.Println("Main: Waiting for all workers to finish...")
-	wg.Wait()
-	fmt.Println("Main: All workers have completed their tasks.")
+	for i:=0;i<5;i++{
+		wg.Add(1)
+		go Increment(&wg,&mu,&counter)
+
+	}
+fmt.Println("Starting the workers")
+wg.Wait()
+fmt.Println("Done with the task")
 }
