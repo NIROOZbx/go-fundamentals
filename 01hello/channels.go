@@ -1,20 +1,38 @@
 package main
 import "fmt"
+import "sync"
+import "time"
 
 func main(){
 
 	ch:=make(chan string)
+	var wg sync.WaitGroup
 
-	fmt.Println("Starting the main function")
 
-	go func(){
-		fmt.Println("Starting the go routine")
+	wg.Add(3)
+	go func(){ 
+		defer wg.Done()
+		ch <-"First"
+		ch<-"Fourth"
+		}()
+	go func(){ 
+		defer wg.Done()
+		ch <-"Second"
+		}()
+	go func(){ 
+		defer wg.Done()
+		ch <-"Third"
+		}()
+		go func(){
+			wg.Wait()
+			close(ch)
+		}()
+		
+		for Message:=range ch{
+			fmt.Println(Message)
+			time.Sleep(1000 * time.Millisecond)
+		}
 
-		ch <-"Go routine work is done"
+	fmt.Print("Ended listening and recieving")
 
-	}()
-
-		ch1:=<-ch
-
-		fmt.Println("Recived the message\n",ch1)
 }

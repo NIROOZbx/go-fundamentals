@@ -18,7 +18,7 @@ func main(){
 	var mu sync.Mutex
 	var counter int
 
-	for i:=0;i<5;i++{
+	for i:=0;i<100;i++{
 		wg.Add(1)
 		go Increment(&wg,&mu,&counter)
 
